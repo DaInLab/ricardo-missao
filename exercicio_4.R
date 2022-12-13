@@ -7,16 +7,27 @@ library(readxl)
 # Importando o arquivo do exercício 4
 df.ex4 <- read_excel("./dados/exercicio4.xls",skip = 1, col_names = "salarios", col_types = c("numeric"))
 
-#aqui tem comandos e tutoriais, consulta - https://www.tutorialspoint.com/r/r_mean_median_mode.htm
+# Importando os dados do exercício 4
+df.ex4 <- read_excel("./dados/exercicio4.xls",skip = 1, col_names = "Salários", col_types = c("numeric"))
 
-freq <- table(df.ex4$col_names , "salarios", col_types = c("numeric"))
+# distribuição de frequência
+# transformando os dados em vetor
+ex4.em.vetor <- c(df.ex4$Salários)
 
-# calculando a mediana
-ex4.mediana = median(df.ex4$salarios)
-print(paste("Médiana das taxas de juros:", ex4.mediana))
+# criando a tabela de frequência
+ex4.tabela <-table(ex4.em.vetor)
 
-# gráfico para representar os valores é o do "boxplot"!
-boxplot(df.ex4)
+# imprimindo a tabela de frequência
+ex4.tabela
+table(df.ex4)
 
+
+# Histograma
+
+hist(df.ex4$Salários)
+hist(df.ex4$Salários, breaks = 7, col = "blue", xlab = "Salário dos funcionários")
+hist(df.ex4$Salários, breaks = 7, col = "blue", xlab = "Salário dos funcionários", ylab = "Frequência", main = " Histograma de Salários")
+
+hist(df.ex4$Salários, breaks = 7, col = "green", xlab = "Salário dos funcionários", ylab = "Frequência", main = " Histograma de Salários")
 
 
